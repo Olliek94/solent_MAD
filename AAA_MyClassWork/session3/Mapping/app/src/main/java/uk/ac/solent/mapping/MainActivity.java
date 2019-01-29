@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity
 
     MapView mv;
 
+
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -35,5 +36,6 @@ public class MainActivity extends AppCompatActivity
         mv.setBuiltInZoomControls(true);
         mv.getController().setZoom(16);
         mv.getController().setCenter(new GeoPoint(51.3975,-1.3226));
+
     }
 }
