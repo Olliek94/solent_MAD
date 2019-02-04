@@ -7,6 +7,7 @@ import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Button;
 
 import org.osmdroid.config.Configuration;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity
 {
 
     MapView mv;
+    Button btn1;
 
 
     /** Called when the activity is first created. */
