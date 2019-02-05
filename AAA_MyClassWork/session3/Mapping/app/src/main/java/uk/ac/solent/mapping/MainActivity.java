@@ -18,7 +18,8 @@ public class MainActivity extends AppCompatActivity
 {
 
     MapView mv;
-    Button btn1;
+    Button b = (Button)findViewById (R.id.btn1);
+    Button b = (Button)findViewById (R.id.btn2);
 
 
     /** Called when the activity is first created. */

@@ -3,6 +3,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
+
+    <RelativeLayout android:orientation="horizontal" android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:id="@+id/btn1" android:text="@string/goBtn"
+            android:layout_alignParentRight="true"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et1"
+            android:layout_toLeftOf="@id/btn1"
+            android:inputType="numberDecimal"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout android:orientation="horizontal" android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:id="@+id/btn2" android:text="@string/goBtn"
+            android:layout_alignParentRight="true"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et1"
+            android:layout_toLeftOf="@id/btn1"
+            android:inputType="numberDecimal"
+            />
+
+    </RelativeLayout>
+
+
     <org.osmdroid.views.MapView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,8 +48,8 @@
         tilesource="Mapnik"
         />
 
-    <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:id="@+id/btn1" android:text="Go!" />
+
+
 
 
 </LinearLayout>
