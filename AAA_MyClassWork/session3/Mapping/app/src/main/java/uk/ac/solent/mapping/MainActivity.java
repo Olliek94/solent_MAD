@@ -18,8 +18,8 @@ public class MainActivity extends AppCompatActivity
 {
 
     MapView mv;
-    Button b = (Button)findViewById (R.id.btn1);
-    Button b = (Button)findViewById (R.id.btn2);
+    Button button1 = (Button)findViewById (R.id.btn1);
+    Button button2 = (Button)findViewById (R.id.btn2);
 
 
     /** Called when the activity is first created. */
@@ -28,6 +28,17 @@ public class MainActivity extends AppCompatActivity
     {
 
         super.onCreate(savedInstanceState);
+
+        // set default values lat lon
+        EditText lonEditText = (EditText) findViewById(R.id.longitude);
+        lonEditText.setText(DEFAULT_LON.toString());
+        EditText latEditText = (EditText) findViewById(R.id.latitude);
+        latEditText.setText(DEFAULT_LAT.toString());
+
+        Button = (button1) findViewById(R.id.btn1);
+        c.setOnClickListener(this);
+        Button = (button2) findViewById(R.id.btn2);
+        d.setOnClickListener(this);
 
         // This line sets the user agent, a requirement to download OSM maps
         Configuration.getInstance().load(this, PreferenceManager.getDefaultSharedPreferences(this));
@@ -39,6 +50,8 @@ public class MainActivity extends AppCompatActivity
         mv.setBuiltInZoomControls(true);
         mv.getController().setZoom(16);
         mv.getController().setCenter(new GeoPoint(51.3975,-1.3226));
+
+
 
     }
 }

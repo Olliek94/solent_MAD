@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -7,15 +8,14 @@
     <RelativeLayout android:orientation="horizontal" android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:id="@+id/btn1" android:text="@string/goBtn"
-            android:layout_alignParentRight="true"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:id="@+id/tv1" android:text="@string/longitude"/>
 
         <EditText
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/et1"
-            android:layout_toLeftOf="@id/btn1"
+            android:layout_toLeftOf="@id/tv1"
             android:inputType="numberDecimal"
             />
 
@@ -24,20 +24,31 @@
     <RelativeLayout android:orientation="horizontal" android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:id="@+id/btn2" android:text="@string/goBtn"
-            android:layout_alignParentRight="true"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:id="@+id/tv2" android:text="@string/latitude"/>
 
         <EditText
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/et1"
-            android:layout_toLeftOf="@id/btn1"
+            android:id="@+id/et2"
+            android:layout_toLeftOf="@id/tv2"
             android:inputType="numberDecimal"
             />
 
     </RelativeLayout>
 
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:id="@+id/btn1" android:text="@string/goBtn"
+            />
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:id="@+id/btn2" android:text="@string/resetBtn"
+            />
+    </LinearLayout>
 
     <org.osmdroid.views.MapView
         android:layout_width="match_parent"
