@@ -7,19 +7,27 @@ import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 
 import org.osmdroid.config.Configuration;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 
-public class MainActivity extends AppCompatActivity
+import static uk.ac.solent.mapping.R.id.btn2;
+
+public class MainActivity extends AppCompatActivity implements OnClickListener
 {
+    public static final Double DEFAULT_LAT = 51.3975;
+    public static final Double DEFAULT_LON = -1.3226;
+    public static final Integer DEFAULT_ZOOM = 11;
 
     MapView mv;
     Button button1 = (Button)findViewById (R.id.btn1);
-    Button button2 = (Button)findViewById (R.id.btn2);
+    Button button2 = (Button)findViewById (btn2);
 
 
     /** Called when the activity is first created. */
@@ -30,9 +38,9 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
 
         // set default values lat lon
-        EditText lonEditText = (EditText) findViewById(R.id.longitude);
+        EditText lonEditText = (EditText) findViewById(R.id.etLon);
         lonEditText.setText(DEFAULT_LON.toString());
-        EditText latEditText = (EditText) findViewById(R.id.latitude);
+        EditText latEditText = (EditText) findViewById(R.id.etLat);
         latEditText.setText(DEFAULT_LAT.toString());
 
         Button = (button1) findViewById(R.id.btn1);
@@ -52,6 +60,11 @@ public class MainActivity extends AppCompatActivity
         mv.getController().setCenter(new GeoPoint(51.3975,-1.3226));
 
 
+
+    }
+
+    @Override
+    public void onClick(View view) {
 
     }
 }
