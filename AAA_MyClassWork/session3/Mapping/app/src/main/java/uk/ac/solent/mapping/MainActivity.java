@@ -17,7 +17,6 @@ import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 
-import static uk.ac.solent.mapping.R.id.btn2;
 
 public class MainActivity extends AppCompatActivity implements OnClickListener
 {
@@ -26,8 +25,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
     public static final Integer DEFAULT_ZOOM = 11;
 
     MapView mv;
-    Button button1 = (Button)findViewById (R.id.btn1);
-    Button button2 = (Button)findViewById (btn2);
+
 
 
     /** Called when the activity is first created. */
@@ -37,21 +35,23 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
 
         super.onCreate(savedInstanceState);
 
+        Configuration.getInstance().load(this, PreferenceManager.getDefaultSharedPreferences(this));
+
+        setContentView(R.layout.activity_main);
+
         // set default values lat lon
         EditText lonEditText = (EditText) findViewById(R.id.etLon);
         lonEditText.setText(DEFAULT_LON.toString());
         EditText latEditText = (EditText) findViewById(R.id.etLat);
         latEditText.setText(DEFAULT_LAT.toString());
 
-        Button = (button1) findViewById(R.id.btn1);
-        c.setOnClickListener(this);
-        Button = (button2) findViewById(R.id.btn2);
-        d.setOnClickListener(this);
+        Button btnGo = (Button) findViewById(R.id.btnGo);
+        btnGo.setOnClickListener(this);
+        Button btnReset = (Button) findViewById(R.id.btnReset);
+        btnReset.setOnClickListener(this);
 
         // This line sets the user agent, a requirement to download OSM maps
-        Configuration.getInstance().load(this, PreferenceManager.getDefaultSharedPreferences(this));
 
-        setContentView(R.layout.activity_main);
 
         mv = (MapView)findViewById(R.id.map1);
 

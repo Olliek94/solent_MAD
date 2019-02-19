@@ -43,10 +43,10 @@
         android:layout_height="match_parent"
         >
         <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:id="@+id/btn1" android:text="@string/goBtn"
+            android:id="@+id/btnGo" android:text="@string/goBtn"
             />
         <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:id="@+id/btn2" android:text="@string/resetBtn"
+            android:id="@+id/btnReset" android:text="@string/resetBtn"
             />
     </LinearLayout>
 
