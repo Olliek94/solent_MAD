@@ -27,7 +27,22 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
     MapView mv;
 
 
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
 
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        if(item.getItemId() == R.id.choosemap)
+        {
+            // react to the menu item being selected...
+            return true;
+        }
+        return false;
+    }
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState)
