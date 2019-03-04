@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">async</string>
+    <string name="addartist">add artist</string>
+    <string name="artistPrompt">Enter Artist Name</string>
+    <string name="getSongs">Get Songs for Artist</string>
+
+</resources>
