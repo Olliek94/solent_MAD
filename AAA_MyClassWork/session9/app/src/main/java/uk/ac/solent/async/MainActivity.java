@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button addSong = (Button) findViewById(R.id.btnGetSongs);
+        addSong.setOnClickListener(this);
 
 
     }
@@ -42,24 +44,32 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.addartist) {
-            // react to the menu item being selected...
-            //Intent intent = new Intent(this, AddArtistActivity.class);
-            //startActivityForResult(intent, 0);
-            // startActivity(intent);
+            //react to the menu item being selected...
+            Intent intent = new Intent(this, AddArtistActivity.class);
+            startActivityForResult(intent, 0);
+            startActivity(intent);
             return true;
         }
         return false;
     }
 
     public void onClick(View v) {
+        EditText artist = (EditText) findViewById(R.id.artist);
+        DownloadArtistTask t = new DownloadArtistTask();
+        t.execute(artist.getText().toString());
+
 
     }
 
-    class DownloadArtistTask extends AsyncTask<Void, Void, String> {
-        public String doInBackground(Void... unused) {
+    class DownloadArtistTask extends AsyncTask<String, Void, String> {
+
+        public String doInBackground(String... input) {
             HttpURLConnection conn = null;
+            String artist = input[0];
+
             try {
-                URL url = new URL("http://server.com/people.php");
+                //http://www.free-map.org.uk/course/ws/hits.php?artist=Madonna
+                URL url = new URL("http://www.free-map.org.uk/course/ws/hits.php?artist="+artist);
                 conn = (HttpURLConnection) url.openConnection();
                 InputStream in = conn.getInputStream();
                 if (conn.getResponseCode() == 200) {
