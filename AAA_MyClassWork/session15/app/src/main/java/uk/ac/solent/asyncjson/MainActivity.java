@@ -19,6 +19,9 @@ import android.app.AlertDialog;
 import android.widget.TextView;
 import org.json.JSONObject;
 import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -26,6 +29,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
+
 
 
 public class MainActivity extends AppCompatActivity implements OnClickListener {
@@ -88,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                     System.out.println("debug"+result);
                     return result;
                 } else {
-                    return "HTTMadonnaP ERROR: " + conn.getResponseCode();
+                    return "HTTP ERROR: " + conn.getResponseCode();
                 }
             } catch (IOException e) {
                 return e.toString();
@@ -100,6 +105,46 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         }
 
         public void onPostExecute(String result) {
+
+            try
+            {
+
+                String json = "[" +
+                        "{ 'title' : 'Some Might Say', 'artist': 'Oasis', 'day': '6', 'month': 'May', 'year': '1995' } ," +
+                        "{ 'title' : 'Into The Groove', 'artist': 'Madonna', 'day': '3', 'month': 'August', 'year': '1985' } ," +
+                        "{ 'title' : 'True Blue', 'artist': 'Madonna', 'day': '11', 'month': 'October', 'year': '1986' } ,"
+                        +"]";
+
+                JSONArray jsonArr = new JSONArray (json);
+                String curName, curNationality, curDOB, curComments;
+
+                TextView tv = (TextView)findViewById(R.id.songList);
+                String text="";
+
+                for(int i=0; i<jsonArr.length(); i++)
+                {
+                    JSONObject curObj = jsonArr.getJSONObject(i);
+                    String name = curObj.getString("name"),
+                            title = curObj.getString("title"),
+                            artist = curObj.getString("artist"),
+                            date = curObj.getString("date");
+                    text +=" Name= "+ name + " title = " + title + " artist= " + artist + " date = " + date + "\n";
+                }
+                tv.setText(text);
+            }
+            catch (JSONException e)
+            {
+                new AlertDialog.Builder(this).setMessage(e.toString()).setPositiveButton("OK", null).show();
+            }
+
+
+
+
+
+
+
+
+
             TextView et1 = (TextView) findViewById(R.id.songList);
             et1.setText(result);
         }

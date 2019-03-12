@@ -18,6 +18,8 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import uk.ac.solent.asyncjson.R;
+
 
 public class AddArtistActivity extends AppCompatActivity implements OnClickListener {
 
