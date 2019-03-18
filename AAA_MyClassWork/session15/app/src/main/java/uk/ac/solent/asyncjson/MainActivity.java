@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             }
             catch (JSONException e)
             {
-                new AlertDialog.Builder(this).setMessage(e.toString()).setPositiveButton("OK", null).show();
+                new AlertDialog.Builder (MainActivity.this).setMessage(e.toString()).setPositiveButton("OK", null).show();
             }
 
 
